@@ -15,6 +15,6 @@ if (preg_match_all('%.*reg$%mi', $str, $arr)) {
 } else {
 	var_dump($arr);
 }
-
+ 
 
  ?>
