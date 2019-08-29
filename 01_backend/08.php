@@ -7,11 +7,11 @@
  */
 // open smtp.qq.com 25
 // HELO smtp.qq.com
-// AUTH login
+// AUTH LOGIN
 // 输入base64加密过的用户名
 // 输入base64加密过的密码
 // MAIL FROM: <xxx@qq.com>
-// REPT TO: <xxx@qq.com>
+// RCPT TO: <xxx@qq.com>
 // DATA
 // this is example for smtp protocol
 // .
