@@ -17,10 +17,20 @@
 // .
 // QUIT
 
-var_dump(base64_encode('254033181@qq.com'));
+include('smtp.class.php');
+$mail = new smtpMail();
 
-echo '<br/>';
+$mail->host = 'smtp.qq.com';
+$mail->port = 25;
+$mail->user = base64_encode('3090731559@qq.com');
+$mail->pass = base64_encode('sciytclirotqdgef');
 
-var_dump(base64_encode('900510...wjy'));
+$from = '3090731559@qq.com';
+$to = '731323616@qq.com';
+$subject = 'hello mogace, nice to meet you!';
 
+$mail->smtp_mail();
+$result = $mail->send_mail($from, $to, $subject);
+
+var_dump($result);
  ?>
