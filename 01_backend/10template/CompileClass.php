@@ -15,6 +15,13 @@ class ComplieClass{
 	public function compile($source, $destFile){
 		file_put_contents($destFile, file_get_contents($source));
 	}
+
+	public function c_var(){
+		$pattern = "#\{([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f_\xff]*)\}#";
+		if (strpos($this->content, '{$') !== false) {
+			$this->content = preg_replace($pattern, "<?php php echo \$this->value['\\1']; ?>", $this->content);
+		}
+	}
 }
 
  ?>
