@@ -3,7 +3,7 @@
 {$data}, {$person}
 
 <ul>
-	{loop $b} <li> {$v} {/loop}	
+	{loop $b} <li> {V} </li> {/loop}	
 </ul>
 
 <?php

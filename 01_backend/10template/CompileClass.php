@@ -13,17 +13,18 @@ class ComplieClass{
 
 	public function __construct($template, $compileFile, $config){
 		$this->template = $template;
-		$this->comfile = file_get_contents($template);
+		$this->comfile = $compileFile;
+		$this->content = file_get_contents($template);
 
 		if ($config['php_turn'] === false) {
 			$this->T_P[] = "#<\? (=|php |)(.+?)\?>#is";
 			$this->T_R[] = "&lt;? \\1\\2 &gt;";
 		}
 
-		$this->T_P[] = "#\{([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f_\xff]* )\}#";
-		$this->T_P[] = "#\{(loop|foreach) \\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f_\xff]* \}#i";
+		$this->T_P[] = "#\{\\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f_\xff]*)\}#";
+		$this->T_P[] = "#\{(loop|foreach) \\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f_\xff]*)\}#i";
 		$this->T_P[] = "#\{\/(loop|foreach|if)\}#i";
-		$this->T_P[] = "#\{(K|V)\}#";
+		$this->T_P[] = "#\{([K|V])\}#";
 		$this->T_P[] = "#\{if (.* ?)\}#i";
 		$this->T_P[] = "#\{(else if|elseif) (.* ?)\}#i";
 		$this->T_P[] = "#\{else\}#i";
@@ -42,6 +43,7 @@ class ComplieClass{
 	public function compile(){
 		$this->c_var2();
 		$this->c_staticFile();
+
 		file_put_contents($this->comfile, $this->content);
 	}
 

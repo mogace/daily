@@ -7,7 +7,7 @@ class Template{
 		'compiledir' => 'cache', // 设置编译后存放的目录
 		'cache_html' => false, // 是否编译为html文件
 		'suffix_cache' => '.html', // 设置编译文件的后缀
-		'cache_time' => 7200 // 多长时间自动更新，单位秒
+		'cache_time' => 7200, // 多长时间自动更新，单位秒
 		'php_turn' => true, // 是否支持原生代码
 		'cache_control' => 'control.dat',
 		'debug' => false
@@ -32,14 +32,14 @@ class Template{
 		if (!is_dir($this->arrayConfig['compiledir'])) {
 			mkdir($this->arrayConfig['compiledir'], 0770, true);
 		}
-
+		
 		include "CompileClass.php";
 	}
 
 	// 获取路径
 	public function getPath(){
-		$this->arrayConfig['templateDir'] = strstr(realpath($this->arrayConfig['templateDir']), '\\', '/').'/';
-		$this->arrayConfig['compiledir'] = strstr(realpath($this->arrayConfig['compiledir']), '\\', '/').'/';
+		$this->arrayConfig['templateDir'] = str_replace('\\', '/', realpath($this->arrayConfig['templateDir'])).'/';
+		$this->arrayConfig['compiledir'] = str_replace('\\', '/', realpath($this->arrayConfig['compiledir'])).'/';
 	}
 
 	// 取得模板引擎实例
@@ -70,7 +70,7 @@ class Template{
 	}
 
 	// 注入单个变量
-	public function assign($key, $vlaue){
+	public function assign($key, $value){
 		$this->value[$key]  = $value;
 	}
 
@@ -120,7 +120,7 @@ class Template{
 		$cacheFile = $this->arrayConfig['compiledir'].'/'.md5($file).'.html';
 
 		if ($this->reCache($file) === false) {
-			$this->dubug['cached'] = 'false';
+			$this->debug['cached'] = 'false';
 			$this->compileTool = new ComplieClass($this->path(), $compileFile, $this->arrayConfig);
 			if ($this->needCache()) {
 				ob_start();
@@ -143,18 +143,20 @@ class Template{
 			$this->debug['cached'] = 'true';
 		}
 
-		$this->dubug['spend'] = microtime(true) - $this->debug['begin'];
-		$this->debug['count'] = count($this->value);
-		$this->dubug_info();
+		$this->debug['count'] ='"'.count($this->value).'"';
+		$this->debug['speed'] = microtime(true) - $this->debug['begin'];
+
+
+		$this->debug_info();
 	}
 
 	public function debug_info(){
 		if ($this->arrayConfig['debug'] === true) {
-			echo PHP_EOL,'------',PHP_EOL;
-			echo '程序运行日期:'.date('Y-m-d h:i:s'), PHP_EOL;
-			echo '模板解析耗时:'.$this->debug['speed'].'秒', PHP_EOL;
-			echo '模板包含标签数目:'.$this->dubug['count'], PHP_EOL;
-			echo '是否使用静态缓存:'.$this->dubug['cached'], PHP_EOL;
+			echo PHP_EOL,'------',PHP_EOL, "<br/>";
+			echo '程序运行日期:'.date('Y-m-d h:i:s'), PHP_EOL, "<br/>";
+			echo '模板解析耗时:'.$this->debug['speed'].'秒', PHP_EOL, "<br/>";
+			echo '模板包含标签数目:'.$this->debug['count'], PHP_EOL, "<br/>";
+			echo '是否使用静态缓存:'.$this->debug['cached'], PHP_EOL, "<br/>";
 		}
 	}
 
