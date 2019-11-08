@@ -78,7 +78,7 @@ class Template{
 	public function assignArray($array) {
 		if (is_array($array)) {
 			foreach ($array as $key => $value) {
-				$this->value[$key] = $vlaue;
+				$this->value[$key] = $value;
 			}
 		}
 	}
@@ -160,16 +160,17 @@ class Template{
 		}
 	}
 
-	public function clean(){
+	public function clean($path){
 		if ($path == null) {
 			$path = $this->arrayConfig['compiledir'];
 			$path = glob($path.'*'.$this->arrayConfig['suffix_cache']);
 		} else {
 			$path = $this->arrayConfig['compiledir'].md5($path).'.html';
-			foreach ((array)$path as $key => $value) {
-				unlink($value);
-			}
 		}
+
+        foreach ((array)$path as $key => $value) {
+            unlink($value);
+        }
 	}
 }
 
