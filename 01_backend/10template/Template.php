@@ -52,7 +52,7 @@ class Template{
 	}
 
 	// 设置模班引擎
-	public function setCOnfig($key, $value = null){
+	public function setConfig($key, $value = null){
 		if (is_array($key)) {
 			$this->arrayConfig = $key + $this->arrayConfig;
 		} else {
