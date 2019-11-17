@@ -1,7 +1,7 @@
 <?php 
 /**
  * 小型数据库实现
- * 
+ *  
  */
 
 $fp = fopen("data.dat", "wb");
