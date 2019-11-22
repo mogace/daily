@@ -8,4 +8,4 @@ $fp = fopen("data.dat", "wb");
 fwrite($fp, 12, 4);
 fclose($fp);
 
- ?>
+?>
