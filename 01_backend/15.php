@@ -10,6 +10,6 @@ QRcode::png($data, false, $level, $size, 2);
 $aa = ob_get_contents();
 $imageString = base64_encode(ob_get_contents());
 ob_end_clean();
-
+ 
 var_dump("data:image/jpg;base64,".$imageString);
 ?>
