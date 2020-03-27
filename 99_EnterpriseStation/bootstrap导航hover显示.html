@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>example</title>
+</head>
+<style type="text/css">
+	<!-- hover样式 -->
+	.navbar .nav > li:hover .dropdown-menu {
+      display: block;
+    }
+</style>
+<body>
+	<script type="text/javascript">
+		var width = $(document).width();
+	    if (width > 768) { // 移动端不跳转
+	      // 一级导航点击跳转
+	      $('.navbar .dropdown-toggle').click(function () {
+	        var href = $(this).attr('href');
+	        window.location.href = href;
+	      })
+	    }
+	</script>
+</body>
+</html>
