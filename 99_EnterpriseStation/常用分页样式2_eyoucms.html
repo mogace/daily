@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eyoucms</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.pagina{
+      	height: 60px;
+      	padding: 20px 0 30px;
+      	width: 100%;
+      	clear: both;
+  	}
+  	.tcdPageCode {
+      	text-align: center;
+        color: #808080;
+       font-size: 14px;
+  	}
+	.tcdPageCode li{
+	    display: inline;
+	}
+    .tcdPageCode span.disabled {
+       	display: inline-block;
+       	height: 35px;
+      	line-height: 35px;
+      	padding: 0 14px;
+      	margin: 0 2px;
+      	color: #808080;
+      	background: #fff;
+      	border: 1px solid #e6e3e3;
+      	vertical-align: middle;
+      	border-radius:1px;
+    }
+ 	.tcdPageCode span.current {
+      	display: inline-block;
+      	height: 35px;
+      	line-height: 35px;
+      	padding: 0 14px;
+      	margin: 0 2px;
+      	color: #fff;
+      	background-color: #1c4587;
+      	border: 1px solid #1c4587;
+      	vertical-align: middle;
+      	border-radius:1px;
+  	}
+  	.tcdPageCode a {
+      	display: inline-block;
+      	color: #808080;
+      	height: 35px;
+      	line-height: 35px;
+      	background: #fff;
+      	padding: 0 14px;
+      	border: 1px solid #ddd;
+      	margin: 0 2px;
+      	vertical-align: middle;
+      	border-radius:1px;
+  	}
+	</style>
+</head>
+<body>
+	<span class="pagina">
+      {eyou:pagelist listitem='index,pre,pageno,next,end' listsize=‘8’ /}
+      <ul class="tcdPageCode">
+  	  <li><span class="disabled">首页</span></li> 
+  		<li><span class="disabled">上一页</span></li> 
+  		<li><span class="current">1</span></li>
+  		<li><a href="/index.php/product/product.html?page=2" class="tcdNumber">2</a></li> 
+  		<li><a href="/index.php/product/product.html?page=2" class="tcdNumber">下一页</a></li> 
+  		<li><a href="/index.php/product/product.html?page=2" class="tcdNumber">末页</a></li>
+    	</ul>
+    </span>
+</body>
+</html>
