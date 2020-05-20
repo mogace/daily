@@ -1,0 +1,29 @@
+<style type="text/css">
+.keifu{ position:fixed; top:30%; right:0; width:131px;font-size: 14px;);
+ z-index:990;}
+.keifu_tab{ width:160px;}
+.icon_keifu{ width:26px; height:100px; float:left; background:url({cms:global name='web_templets_pc' /}/style/images/keifu.png) 0 0; position:relative; display:none; cursor:pointer;}
+.keifu_box{ float:left; width:131px;}
+.keifu_tab img{ display:block;}
+.keifu_head{ width:131px; height:40px; background: #305dc3; font-size:20px; line-height:40px; position:relative;color: #ffffff;text-align: center;}
+.keifu_close:link,.keifu_close:visited{ display:block; width:11px; height:11px; background:url({cms:global name='web_templets_pc' /}/style/images/keifu.png) -42px 0; position:absolute; top:5px; right:5px;}
+.keifu_close:hover{ background-position:-60px 0;}
+.keifu_con{ border-left:7px solid #305dc3; border-right:7px solid #305dc3; padding-top:15px; background:#fbfbfb;padding-bottom: 30px;border-bottom:7px solid #305dc3;}
+.keifu_con li{height:33px;text-align: center;}
+.keifu_con .weixin{ height:96px;}
+.keifu_con .bt{ font-size:16px; height:30px; line-height:30px; text-align:left; padding:0 0 0 20px; color:#012646;}
+.keifu_bot{ width:131px; height:119px; background:url({cms:global name='web_templets_pc' /}/style/images/keifu.png); background-position:0 -149px; }
+</style>
+<div class="keifu">
+  <div class="keifu_tab">
+    <div class="icon_keifu"></div>
+    <div class="keifu_box">
+      <div class="keifu_head">咨询我们</div>
+      <ul class="keifu_con">
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin={eyou:global name='web_attr_11' /}&site=qq&menu=yes" target="_blank" style="display: block;color: #929292"><img src="{cms:global name='web_templets_pc' /}/style/images/qq.png" style="display: inline-block;margin-right: 5px;margin-bottom: -3px;float: none;">QQ咨询</a></li>
+        <li style="margin-bottom: 10px;">服务热线：<span style="display: block;font-weight: bold;font-size: 17px;color: #fe0200;font-weight: bold;">{eyou:global name='web_attr_2' /}</span></li>
+        <li class="weixin" style="text-align: center;"><img style="display: block;margin: 0 auto;float: none;" src="{cms:global name='web_templets_pc' /}/style/images/qrcode.jpg" width="96" alt="官方微信" /><p>扫一扫更快咨询</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
