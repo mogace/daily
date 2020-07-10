@@ -1,5 +1,0 @@
-# 常用开发规范
-
-1. 参考网站头部 ks-zot1.gz02.bdysite.com
-2. banner统一为3张，尺寸1920*650
-3. 号码统一格式：color: #eea200;font-size: 36px;font-family: "Times New Roman";
