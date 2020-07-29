@@ -1,0 +1,26 @@
+<style type="text/css">
+.keifu{position:fixed;top:30%;right:0;width:131px;font-size: 14px;z-index:990;}
+.keifu_tab{width:160px;}
+.keifu_box{float:left;width:131px;}
+.keifu_head{width:131px;height:40px;background: #1186bf;font-size:20px;line-height:40px; position:relative;color: #ffffff;text-align: center;}
+.keifu_con{border-left:7px solid #1186bf;border-right:7px solid #1186bf;padding-top:15px;background:#fbfbfb;padding-bottom: 30px;border-bottom:7px solid #1186bf;}
+.keifu_con li{height:33px;text-align: center;}
+.keifu_con .weixin{height:96px;text-align: center;}
+.keifu_con .weixin img{display: block;margin: 0 auto}
+.qq > a{display: block;}
+.qq a img{display: inline-block;margin-right: 5px;margin-bottom: -5px;}
+.keifu_con .hotline{margin-bottom: 10px;}
+.hotline span{display: block;font-weight: bold;font-size: 17px;color: #fe0200;font-weight: bold;}
+</style>
+<div class="keifu">
+  <div class="keifu_tab">
+    <div class="keifu_box">
+      <div class="keifu_head">咨询我们</div>
+      <ul class="keifu_con">
+        <li class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin={$base[qq]}&site=qq&menu=yes" target="_blank"><img src="style/images/qq2.png"></a></li>
+        <li  class="hotline">服务热线：<span>{$base[phone]}</span></li>
+        <li class="weixin"><img src="style/images/qrcode.jpg" width="96" alt="官方微信" /><p>扫一扫更快咨询</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
