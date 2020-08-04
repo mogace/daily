@@ -67,6 +67,9 @@ class index
         $siteid = $GLOBALS['siteid'] = $CAT['siteid'];
 
         $MODEL = getcache('model', 'commons');
+
+         $sitelist  = getcache('sitelist','commons'); // 新增
+
         $modelid = $CAT['modelid'];
 
         $tablename = $this->db->table_name = $this->db->db_tablepre . $MODEL[$modelid]['tablename'];
@@ -255,6 +258,8 @@ class index
         }
 
         $siteids = getcache('category_content', 'commons');
+        $sitelist  = getcache('sitelist','commons'); // 新增
+
         $siteid = $siteids[$catid];
         $CATEGORYS = getcache('category_content_' . $siteid, 'commons');
         if (!isset($CATEGORYS[$catid])) {
