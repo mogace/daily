@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>间隔滚动效果</title>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+	<style type="text/css">
+		li{ list-style-type: none; }
+	</style>
+</head>
+<body>
+		<div style="float:left"><strong>间隔滚动效果：</strong></div>
+		<div id="demo" style="overflow:hidden;height:22px;line-height:22px;">
+		    <ul class="mingdan" id="holder">
+		      	<li><a href="#" target="_blank">aaaaaa</a></li>
+		      	<li><a href="#" target="_blank">bbbbbb</a></li>
+		      	<li><a href="#" target="_blank">cccccc</a></li>
+		      	<li><a href="#" target="_blank">dddddd</a></li>
+		      	<li><a href="#" target="_blank">eeeeee</a></li>
+		    </ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function AutoScroll(obj) {
+		    $(obj).find("ul:first").animate({
+		        marginTop: "-22px"
+		    },
+		    500,
+		    function() {
+		        $(this).css({
+		            marginTop: "0px"
+		        }).find("li:first").appendTo(this);
+		    });
+		}
+		
+		$(document).ready(function() {
+		    setInterval('AutoScroll("#demo")', 1000)
+		});
+	</script>
+</body>
+</html>
